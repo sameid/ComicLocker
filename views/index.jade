@@ -1,0 +1,113 @@
+!!! 5
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    title ComicStack
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(href='public/bootstrap/css/bootstrap.css', rel='stylesheet')
+    link(href='public/dropzone/css/basic.css', rel='stylesheet')
+    style
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    link(href='public/bootstrap/css/bootstrap-responsive.css', rel='stylesheet')
+  body
+    .navbar.navbar-inverse.navbar-fixed-top
+      .navbar-inner
+        .container
+          button.btn.btn-navbar(type='button', data-toggle='collapse', data-target='.nav-collapse')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.brand(href='#') comicStack
+          .nav-collapse.collapse
+            ul.nav
+              li
+                a(href='#personal') Personal
+              li
+                a(href='#community') Community
+              li
+                a(href='#settings') Account
+    .container
+      .row
+<<<<<<< HEAD
+        a.btn(href='#uploadModal', role='button', data-toggle='modal') Upload a comic
+      .row
+        ul#comic-gallery.thumbnails
+      #uploadModal.modal.hide.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+        .modal-header
+          button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+          h3#myModalLabel Upload a comic...
+        .modal-body
+          form.dropzone(action='/comics')
+            .fallback
+              input(name='newComic', type='file', multiple)
+        .modal-footer
+          button.btn.btn-primary(data-dismiss='modal', aria-hidden='true') Close 
+    script(src='http://code.jquery.com/jquery-1.10.1.min.js')
+    script(src='public/js/modules/personal_lib.js')
+    script(src='public/bootstrap/js/bootstrap.min.js')
+    script(src='public/dropzone/dropzone.js')
+    script(src='public/opentip/opentip-jquery.min.js')
+
+=======
+        .span3
+          a.btn.btn-large.btn-block.btn-info(href='#uploadModal', data-toggle='modal') Upload a comic
+        .span5.offset4(align='right')
+          h4
+            | Current amount of comics...
+            small  (1.5GB)
+          .progress.progress-striped.active
+            .bar(style='width: 45%;')
+        //
+           /sliders 
+      //
+         /row 
+      #main-content.row
+        #search-comics.span4
+          .well
+            input.span3.switch-click(type='text', value='', placeholder='Search...', id='main-search')        
+            ul#userComics
+        #search-comics-gallery.span12
+          .well
+            input.span3.switch-click(type='text', value='', placeholder='Search...', id='main-search-gallery')        
+            ul#userComics-gallery.thumbnails
+        #comic-preview.span8
+          .well
+            ul#comic-view
+        //
+           /todo list 
+    //
+       /container
+    //
+     Modal 
+    #uploadModal.modal.hide.fade(tabindex='-1', role='dialog', aria-labelledby='myModalLabel', aria-hidden='true')
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-hidden='true') ×
+        h3#myModalLabel Upload a comic
+      .modal-body
+        p One fine body…
+      .modal-footer
+        button.btn(data-dismiss='modal', aria-hidden='true') Close
+        button.btn.btn-primary Add comic
+    footer
+      .container
+        .row
+    //
+       Load JS here for greater good =============================
+    script(src='public/js/jquery-1.8.3.min.js')
+    script(src='public/js/jquery-ui-1.10.3.custom.min.js')
+    script(src='public/js/jquery.ui.touch-punch.min.js')
+    script(src='public/js/bootstrap.min.js')
+    script(src='public/js/bootstrap-select.js')
+    script(src='public/js/bootstrap-switch.js')
+    script(src='public/js/flatui-checkbox.js')
+    script(src='public/js/flatui-radio.js')
+    script(src='public/js/jquery.tagsinput.js')
+    script(src='public/js/jquery.placeholder.js')
+    script(src='public/js/jquery.stacktable.js')
+    script(src='http://vjs.zencdn.net/c/video.js')
+    script(src='public/js/application.js')
+    script(src='public/js/modules/plib.js')
+    script(src='public/js/jquery.roundabout.min.js')
+>>>>>>> e3d81c8cc8d83475511ed39d7f8fc9c2c23c9756

@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  h1 push a comic
+  form(action="http://192.168.2.35:3000/comics", method="post", enctype="multipart/form-data")
+    input(type="file", name="newComic")
+    input(type='submit',value='Upload')

@@ -1,0 +1,9 @@
+comic object:
+ - name
+ - year
+ - files[]
+ 
+ {
+	"hash": "d1d6eb057dd9cdb03ad14657c9c46a08",
+	"pagecount": "20",
+}
