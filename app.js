@@ -34,7 +34,6 @@ app.get('/upload', routes.upload);
 app.post('/login', user.login);
 app.get('/logout', user.logout);
 
-<<<<<<< HEAD
 //rest api
 app.get('/user/space', user.currentUserSpace);
 app.get('/comics', checkAuth, comic.findAll);
@@ -52,14 +51,14 @@ function checkAuth(req, res, next) {
     res.render('login');
   }
 }
-=======
+
 app.get('/comics', user.checkUserAuth, comic.findAll);
 app.get('/comics/:hash', user.checkUserAuth, comic.findByHash);
 app.post('/comics', /*checkAuth,*/ comic.uploadComic);
 app.delete('/comics/:hash', user.checkUserAuth, comic.deleteByHash);
 app.get('/comics/:hash/:page', user.checkUserAuth, comic.findPageByHash);
 app.get('/comic_size/:hash', user.checkUserAuth, comic.sizeByHash);
->>>>>>> e3d81c8cc8d83475511ed39d7f8fc9c2c23c9756
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Comicstack listening on port ' + app.get('port'));

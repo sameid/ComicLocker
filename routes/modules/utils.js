@@ -5,6 +5,10 @@ var default_auto = true;
 var comicdir = './public/shared-cbs/';
 var db = ''; 
 
+var Server = mongo.Server,
+    Db = mongo.Db,
+    BSON = mongo.BSONPure;
+
 exports.connectToDatabase = function (host, port, auto, callback) {
     var server = new Server(host, port, {
         auto_reconnect: auto

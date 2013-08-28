@@ -3,33 +3,11 @@ var utils = require('./modules/utils');
 var fs = require('fs');
 var crypto = require('crypto');
 var async = require('async');
-<<<<<<< HEAD
 var fs = require('fs');
 var path = '/home/susmani/cloudcomic/CloudComics/public/shared-cbs/';
-
-var Server = mongo.Server,
-    Db = mongo.Db,
-    BSON = mongo.BSONPure;
- 
-var server = new Server('localhost', 27017, {auto_reconnect: true});
-db = new Db('comicdb', server);
- //youtube.com: he man yea
-db.open(function(err, db) {
-    if(!err) {
-        //console.log("Connected to 'comicsdb' database");
-        db.collection('users', {strict:true}, function(err, collection) {
-            if (err) {
-				console.log('no users, going to populate devs');
-				populateUsers();
-			}
-        });
-    }
-=======
-var db = '';
  
 utils.connectToDatabase('localhost', 27017, true, function(db){
 	_that.db = db;
->>>>>>> e3d81c8cc8d83475511ed39d7f8fc9c2c23c9756
 });
 
 exports.login = function (req, res) {
@@ -70,7 +48,6 @@ exports.logout = function (req, res) {
     });
 };
 
-<<<<<<< HEAD
 exports.currentUserSpace = function (req, res){
 	if (req.session.user){
 		db.collection('users', function (err, collection){
@@ -104,7 +81,8 @@ var sizeByHash_static = function (hash, cb){
 	readSizeRecursive(path +hash,hash,  function (err, total){	
 		cb(total);
 	});
-=======
+}
+
 exports.currentUserSpace = function (req, res) {
     if (req.session.user) {
         db.collection('users', function (err, collection) {
@@ -123,8 +101,6 @@ exports.currentUserSpace = function (req, res) {
                             collection.find().toArray(function (err, items) {
                                 //iterate through items and add total space
 								//to be refactored and made async
->>>>>>> e3d81c8cc8d83475511ed39d7f8fc9c2c23c9756
-
                             });
                         }
                     });

@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> e3d81c8cc8d83475511ed39d7f8fc9c2c23c9756
 
 exports.index = function(req, res){
 

@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 /*
 {
 	hash: '925b03cddb0d9e875c1674d25768c00a',
@@ -10,10 +10,8 @@
 }
 */
 var mongo = require('mongodb');
-=======
 var _that = this;
 var utils = require('./modules/utils');
->>>>>>> e3d81c8cc8d83475511ed39d7f8fc9c2c23c9756
 var fs = require('fs');
 var unzip = require('unzip');
 var crypto = require('crypto');
@@ -22,7 +20,7 @@ var async = require('async');
 var path = utils.comicdir;
 var db = {};
 
-utils.connectToDatabase('localhost', 27017, true, function(db){
+utils.connectToDatabase('192.168.2.59', 27017, true, function(db){
 	_that.db = db;
 });
 
