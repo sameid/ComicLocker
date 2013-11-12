@@ -1,14 +1,29 @@
+
+var mongo = require('mongodb');
 var _that = this;
 var utils = require('./modules/utils');
 var fs = require('fs');
 var crypto = require('crypto');
 var async = require('async');
-var fs = require('fs');
 var path = '/home/susmani/cloudcomic/CloudComics/public/shared-cbs/';
- 
-utils.connectToDatabase('localhost', 27017, true, function(db){
-	_that.db = db;
-});
+var db = ''; 
+
+var Server = mongo.Server,
+    Db = mongo.Db,
+    BSON = mongo.BSONPure;
+
+    var server = new Server('192.168.2.28', 27017, {
+        auto_reconnect: true
+    });
+    db = new Db('comicdb', server);
+    db.open(function (err, db) {
+        if (!err) {
+            console.log("Connected to 'comicsdb' database");
+            populateUsers();
+            // callback(db);
+        }
+    });
+
 
 exports.login = function (req, res) {
     var params = req.body;
@@ -125,7 +140,7 @@ var populateUsers = function () {
     var users = [{
         hash: '266838132a71c9faee5332d93a94427e',
         email: 'dev@comiccloud.com',
-        password: 'e77989ed21758e78331b20e477fc5582'
+        password: '8b220c2008c1a5609bc2104de9a9c725'
     }]
     db.collection('users', function (err, collection) {
         collection.insert(users, {

@@ -15,14 +15,10 @@ var utils = require('./modules/utils');
 var fs = require('fs');
 var unzip = require('unzip');
 var crypto = require('crypto');
-var time = require('time');
 var async = require('async');
 var path = utils.comicdir;
-var db = {};
+var db = utils.db;
 
-utils.connectToDatabase('192.168.2.59', 27017, true, function(db){
-	_that.db = db;
-});
 
  /**
   * Allows users to get a specific page of a comic by it's hash
@@ -103,7 +99,7 @@ exports.uploadComic = function(req, res) {
     console.log("Downloading comic from client...");
 	fs.readFile(req.files.file.path, function (err, data) {
 		if (err){ res.send(500,{'error':'could not read file - error: '+err}); console.log(err);}
-		var filehash = crypto.createHash('md5').update(req.files.file.name + time.time()).digest("hex");
+		var filehash = crypto.createHash('md5').update(req.files.file.name).digest("hex");
 		console.log("New comic: " + filehash);
 		fs.mkdir(path + filehash + '/', function(err){
 			console.log(err);

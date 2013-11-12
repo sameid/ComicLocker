@@ -1,5 +1,5 @@
 var mongo = require('mongodb');
-var default_host = 'localhost';
+var default_host = '192.168.2.28';
 var default_port = 27017;
 var default_auto = true;
 var comicdir = './public/shared-cbs/';
@@ -9,7 +9,7 @@ var Server = mongo.Server,
     Db = mongo.Db,
     BSON = mongo.BSONPure;
 
-exports.connectToDatabase = function (host, port, auto, callback) {
+exports.connectToDatabase = function (host, port, auto) {
     var server = new Server(host, port, {
         auto_reconnect: auto
     });
@@ -17,10 +17,12 @@ exports.connectToDatabase = function (host, port, auto, callback) {
     db.open(function (err, db) {
         if (!err) {
             console.log("Connected to 'comicsdb' database");
-			callback(db);
+			// callback(db);
         }
     });
 }
+
+this.connectToDatabase('192.168.2.28', 27017, true);
 
 //needs to be completed
 var sizeByHash = function (hash, cb) {
